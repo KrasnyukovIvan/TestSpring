@@ -1,14 +1,23 @@
 package com.krasnyukov.TestSpring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class MusicPlayer {
-    public List<Music> listMusic;
+    public Music firstMusic;
+    public Music secondMusic;
     public int volume;
 
     public MusicPlayer(){};
-    public MusicPlayer(List<Music> list){
-        this.listMusic = list;
+
+    @Autowired
+    public MusicPlayer(@Qualifier("classicalMusic")Music firstMusic,@Qualifier("rockMusic")Music secondMusic){
+        this.firstMusic = firstMusic;
+        this.secondMusic = secondMusic;
     }
 
     public void setVolume(int volume){
@@ -19,13 +28,10 @@ public class MusicPlayer {
         return volume;
     }
 
-    public void setMusic(List<Music> list){
-        this.listMusic = list;
-    }
 
     public void playMusic(){
-        for(int i = 0; i < listMusic.size(); i++)
-        System.out.println(i+1 + " song playing: " + listMusic.get(i).getSong());
+        System.out.println("1) song playing: " + firstMusic.getSong());
+        System.out.println("2) song playing: " + secondMusic.getSong());
     }
 
 
