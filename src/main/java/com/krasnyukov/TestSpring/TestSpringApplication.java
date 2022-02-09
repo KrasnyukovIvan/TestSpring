@@ -12,7 +12,7 @@ public class TestSpringApplication {
 
 		MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-		musicPlayer.playMusic();
+		musicPlayer.playMusic(MusicType.CLASSIC);
 
 		System.out.println(musicPlayer.getVolume());
 

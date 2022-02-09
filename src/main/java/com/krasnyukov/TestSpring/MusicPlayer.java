@@ -29,9 +29,17 @@ public class MusicPlayer {
     }
 
 
-    public void playMusic(){
-        System.out.println("1) song playing: " + firstMusic.getSong());
-        System.out.println("2) song playing: " + secondMusic.getSong());
+    public void playMusic(MusicType type){
+        switch(type){
+            case CLASSIC:
+                System.out.println("playing classic song: " + firstMusic.getSong());
+                break;
+            case ROCK:
+                System.out.println("playing rock song: " + secondMusic.getSong());
+                break;
+            default:
+                System.out.println("Wrong music type");
+        }
     }
 
 
