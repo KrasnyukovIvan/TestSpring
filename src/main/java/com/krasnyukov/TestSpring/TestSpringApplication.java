@@ -16,7 +16,7 @@ public class TestSpringApplication {
 
 		System.out.println(musicPlayer.getVolume());
 
-		musicPlayer.setVolume(50);
+		musicPlayer.setVolume(100);
 
 		System.out.println(musicPlayer.getVolume());
 
